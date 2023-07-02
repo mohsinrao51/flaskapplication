@@ -21,16 +21,12 @@ def get_variable():
 def healthy():
     return jsonify({"status": "ok"})
 
-@app.route("/edit_variable", methods=["POST"])
+@app.route('/edit_variable', methods=["POST"])
 def edit_variable():
-    new_value = request.json.get("value")
-    if new_value is not None:
-        os.environ[variable_name] = new_value
-        return jsonify({"message": "Environment variable updated successfully"})
-    else:
-        return jsonify({"error": "Invalid request data"}), 400
+    title = request.json['title']
+    content = request.json['content']
 
-
+    return jsonify({"message": "environment variable is changed"})
 
 if __name__ == "__main__":
     app.run()
