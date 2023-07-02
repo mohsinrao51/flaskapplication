@@ -1,0 +1,48 @@
+# Flask App Deployment on Kubernetes using Minikube
+
+This repository contains a Flask web application deployed on Kubernetes using Minikube.
+
+## Prerequisites
+
+- Docker installed on your machine.
+- Minikube installed on your machine.
+- kubectl command-line tool installed on your machine.
+
+## Getting Started
+
+1. Clone this repository to your local machine:
+
+git clone https://github.com/yourusername/your-flask-app.git
+cd your-flask-app
+
+2. Build the Docker image:
+docker build -t my_flask_app .
+
+
+3. Push the Docker image to your Docker Hub account (optional):
+
+docker login
+docker tag my_flask_app:latest yourusername/my_flask_app:latest
+docker push yourusername/my_flask_app:latest
+
+
+4. Start Minikube and set the Docker environment:
+
+minikube start
+
+
+5. Deploy the Flask app on Kubernetes:
+
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+kubectl apply -f configmap.yaml
+
+
+6. Verify the deployment:
+
+kubectl get pods
+kubectl get services
+
+
+
+
